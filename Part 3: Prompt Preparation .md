@@ -7,7 +7,7 @@ https://github.com/beetbox/beets/pull/3883
 
 ---
 
-## 3.1 Repository Context (200-300 words)
+## 3.1 Repository Context 
 
 Beets is basically for people who are obsessive about their music libraries. It's a command-line tool (though there are plugins for web interfaces and stuff) that helps you organize and manage your digital music collection. The folks using it are usually pretty technical - think developers, sysadmins, power users who aren't afraid of the terminal.
 
@@ -21,7 +21,7 @@ This PR we're looking at is all about the query system. Right now if you want to
 
 ---
 
-## 3.2 Pull Request Description (200-300 words)
+## 3.2 Pull Request Description 
 
 So this PR adds a new plugin called "bareasc" that lets you search for stuff without typing special characters. The way it works: you put a hash mark (#) before your search term, and beets will match it against Unicode characters by converting everything to plain ASCII first.
 
@@ -38,7 +38,7 @@ Important: this is one-way. ASCII queries find Unicode data, but not backwards. 
 
 ---
 
-## 3.3 Acceptance Criteria (Minimum 5 criteria)
+## 3.3 Acceptance Criteria 
 
 ✓ When a user enables the bareasc plugin and performs a query with the "#" prefix, the system should successfully match database entries containing accented characters using plain ASCII search terms
 
@@ -81,7 +81,7 @@ Since transformation happens at query time for every potential match, very large
 
 ---
 
-## 3.5 Initial Prompt (300-500 words)
+## 3.5 Initial Prompt 
 
 You are tasked with implementing a new query plugin for the beets music library management system. This plugin will enable users to search their music library using plain ASCII characters while matching against metadata containing Unicode characters like accents and special symbols.
 
