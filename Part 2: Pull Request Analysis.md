@@ -16,7 +16,7 @@ I have selected two pull requests from the **beets** repository that I can fully
 **Author:** @arcresu  
 **Files Changed:** Mainly `beetsplug/bpd.py` and some test files
 
-### What's This PR About? (100-150 words)
+### What's This PR About? 
 
 So beets has this plugin called BPD that lets it act like an MPD server - basically your music player clients can connect to beets and play music. Problem was, it was stuck on an old MPD protocol version, so newer clients were either completely broken or super buggy. 
 
@@ -44,7 +44,7 @@ The author tested with a bunch of real clients - ncmpcpp on Linux, MPDroid and M
   - Wrote tests for all the new stuff
   - Added more coverage for playlist operations
 
-### How They Did It (150-200 words)
+### How They Did It 
 
 The smart thing here is they didn't just read the spec and implement it blindly. The author actually ran a bunch of different clients (ncmpcpp, MPDroid, MALP, mpDris2, mpdscribble) and fixed whatever broke. Way more practical than trying to get the spec perfect first.
 
@@ -54,7 +54,7 @@ Here's an interesting bit - they made `noidle` do nothing when you're not in idl
 
 Basically very test-driven - write a commit, see what breaks, fix it, repeat. Not the prettiest approach but effective for compatibility work.
 
-### What This Means (50-100 words)
+### What This Means 
 
 This makes BPD actually usable with modern clients. Before this, you were pretty limited - a lot of popular MPD clients just didn't work. Now ncmpcpp works, Android clients work, integration stuff like mpDris2 and mpdscribble work. If you want to use beets as your music server and connect to it with whatever client you like, this PR makes that realistic.
 
@@ -69,7 +69,7 @@ Risk is low since it's mostly adding stuff, not breaking existing things. BPD us
 **Author:** @GrahamCobb  
 **Files Changed:** New plugin, docs, tests
 
-### What's This PR About? (100-150 words)
+### What's This PR About? 
 
 Ever tried searching for "Bjork" in your music library but your files are tagged as "Björk"? This PR fixes that annoyance. It adds a plugin that lets you search using regular ASCII characters and still match artists/albums with accents and special characters.
 
@@ -104,7 +104,7 @@ This plugin adds a `#` prefix (you can change it) that tells beets "match this u
   - Tests for both tracks and albums
   - Edge cases with weird character sets
 
-### How They Did It (150-200 words)
+### How They Did It 
 
 The implementation is actually pretty clever and straightforward. They use Unidecode, which is a well-known library that converts Unicode to ASCII approximations. The core idea: instead of comparing strings directly, transform both sides to ASCII first, then match.
 
@@ -120,7 +120,7 @@ Smart addition: the `beet bareasc` command shows you what the transformation doe
 
 They were careful about Python 2/3 compatibility - there's explicit Unicode handling throughout. Had a few commits just fixing Python 2 issues. Performance was a concern (transforming every comparison) but testing showed it's fine for normal library sizes. And since it's opt-in with a prefix, if you don't use it, you pay zero performance cost.
 
-### What This Means (50-100 words)
+### What This Means
 
 Makes life way easier if you have international music. Huge win for mobile users where typing special characters sucks. Also helps if you're not familiar with a language's character set - don't need to know where ñ is on a Spanish keyboard layout to search for Spanish artists.
 
