@@ -24,3 +24,7 @@
 1.  airbyte - Mixed (Python 49%, Kotlin 39%, Java 10%)
 
 Here's the thing with airbyte - yeah, it has a lot of Python code, especially in the connectors and that CDK thing. But the actual core platform? That's Kotlin and Java. They went with a polyglot approach where the main orchestration engine runs on the JVM, and Python is used for individual connectors and the connector development kit. So even though almost half the codebase is Python, you can't really call it a Python-primary repo since the fundamental architecture is JVM-based.
+
+## Integrity Declaration
+
+I declare that all written content in this assessment is my own work, created without the use of AI language models or automated writing tools. All technical analysis and documentation reflects my personal understanding and has been written in my own words.
